@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Ticket Booking</title>
+</head>
+<body>
+    <h1>Movie Ticket Booking</h1>
+
+    <form id="bookingForm">
+        <label for="movie">Select Movie:</label>
+        <select id="movie" name="movie">
+            <option value="Avengers">Avengers</option>
+            <option value="Inception">Inception</option>
+            <option value="The Matrix">The Matrix</option>
+        </select>
+        <br><br>
+
+        <label for="tickets">Number of Tickets:</label>
+        <input type="number" id="tickets" name="tickets" min="1" max="10">
+        <br><br>
+
+        <button type="button" onclick="bookTickets()">Book Tickets</button>
+    </form>
+
+    <h2 id="confirmationMessage"></h2>
+
+    <script>
+        function bookTickets() {
+            var movie = document.getElementById("movie").value;
+            var tickets = document.getElementById("tickets").value;
+
+            if (!tickets || tickets <= 0) {
+                alert("Please enter a valid number of tickets.");
+                return;
+            }
+
+            var message = "You have successfully booked " + tickets + " ticket(s) for " + movie + "!";
+            document.getElementById("confirmationMessage").innerText = message;
+        }
+    </script>
+</body>
+</html>
